@@ -2,6 +2,15 @@ import { logoutAccount } from '@/lib/actions/user.actions'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+interface User {
+    name: string;
+    email: string;
+}
+
+interface FooterProps {
+    user?: User; // Make `user` optional
+    type?: 'desktop' | 'mobile'; // Add `type` prop
+}
 
 const Footer = ({ user, type = 'desktop' }: FooterProps) => {
     const router = useRouter();
