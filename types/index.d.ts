@@ -82,15 +82,16 @@ declare type Transaction = {
   receiverBankId: string;
 };
 
-declare type Bank = {
+export interface Bank {
   $id: string;
   accountId: string;
   bankId: string;
   accessToken: string;
   fundingSourceUrl: string;
   userId: string;
-  sharableId: string;
-};
+  shareableId: string;
+  currentBalance: number;
+}
 
 declare type AccountTypes =
     | "depository"

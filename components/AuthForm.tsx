@@ -54,14 +54,19 @@ const AuthForm = ({ type }: { type: string }) => {
             }
 
             if(type === 'sign-in') {
-                const response = await signIn({
-                    email: data.email,
-                    password: data.password,
-                })
+                try {
+                    await signIn({
+                        email: data.email,
+                        password: data.password,
+                    });
 
-                if(response) router.push('/')
-            }
-        } catch (error) {
+                    // Force refresh browser cookies
+                    window.location.href = '/';  // Full page reload
+                } catch (error) {
+                    console.error('Sign-in failed:', error);
+                    // Add error state display here
+                }
+            }        } catch (error) {
             console.log(error);
         } finally {
             setIsLoading(false);

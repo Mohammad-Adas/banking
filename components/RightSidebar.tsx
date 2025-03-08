@@ -4,6 +4,9 @@ import React from 'react'
 import BankCard from './BankCard'
 
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
+  if (!user) {
+    return <div>No user data available. Please log in.</div>;
+  }
   return (
       <aside className="right-sidebar">
         <section className="flex flex-col pb-8">

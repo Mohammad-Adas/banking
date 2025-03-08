@@ -30,8 +30,29 @@ const Home = async () => {
             <RightSidebar
                 user={loggedIn}
                 transactions={[]}
-                banks={[{ currentBalance: 123.50 }, { currentBalance: 500.50}]}
-            />
+                // app/(root)/page.tsx
+                banks={[
+                    {
+                        $id: '1',
+                        accountId: '12345',
+                        bankId: 'bank_123',
+                        accessToken: 'token_abc',
+                        fundingSourceUrl: 'https://example.com',
+                        userId: 'user_123',
+                        shareableId: 'share_123',
+                        currentBalance: 123.50
+                    },
+                    {
+                        $id: '2',
+                        accountId: '67890',
+                        bankId: 'bank_456',
+                        accessToken: 'token_def',
+                        fundingSourceUrl: 'https://example.com',
+                        userId: 'user_123',
+                        shareableId: 'share_456',
+                        currentBalance: 500.50
+                    }
+                ]}            />
         </section>
     )
 }
